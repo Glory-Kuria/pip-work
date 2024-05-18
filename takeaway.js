@@ -1,5 +1,5 @@
 
-// social media application where users can follow other users
+// // social media application where users can follow other users
 
 class socialMedia {
     constructor() {
@@ -27,8 +27,8 @@ console.log(app.getFollowers("user2"));
 console.log(app.getFollowers("user3"));  
 
 
-// Develop a system for scheduling appointments at a healthcare facility.
-//  Consider factors like doctor availability, patient preferences, and appointment reminders.
+// // Develop a system for scheduling appointments at a healthcare facility.
+// //  Consider factors like doctor availability, patient preferences, and appointment reminders.
 
 class AppointmentScheduling {
     constructor(name, skills) {
@@ -45,7 +45,7 @@ isAvailable(date, time) {
 
 scheduleAppointment(patient, date, time) {
  if (this.isAvailable(date, time)) {
- const appointment = new Appointment(this, patient, date, time);
+ const appointment = new AppointmentScheduling(this, patient, date, time);
  this.schedule[date] = this.schedule[date].filter(slot => slot !== time);
  console.log("Appointment scheduled:", appointment); return appointment; }
   else {
@@ -53,24 +53,79 @@ scheduleAppointment(patient, date, time) {
  } }
  }
 
- class Patient {
- constructor(name, email, phone) {
-    this.name = name;
-    this.contactInfo = { email, phone };
-    this.preferences = {}; }
+//  class Patient {
+//  constructor(name, email, phone) {
+//     this.name = name;
+//     this.contactInfo = { email, phone };
+//     this.preferences = {}; }
 
-setPreferences(doctor, date, time) {
-this.preferences = { doctor, date, time }; } }
+// setPreferences(doctor, date, time) {
+// this.preferences = { doctor, date, time }; } }
 
-class Appointment {
-constructor(doctor, patient, date, time) {
-this.doctor = doctor;
-this.patient = patient;
-this.date = date;
-this.time = time; } }
-let appointments = new AppointmentScheduling("Dr. Ken", "gynacologist");
-appointments.addAvailability("2024-05-10", ["09:00", "10:00", "14:00"]);
-const patients = new Patient("Martha Mutua", "mutuamartha.com", "34-24-89-66");
-patients.setPreferences(appointments, "2024-05-10", "09:00");
-appointments.scheduleAppointment(patients, "2024-05-10", "09:00");
+// class Appointment {
+// constructor(doctor, patient, date, time) {
+// this.doctor = doctor;
+// this.patient = patient;
+// this.date = date;
+// this.time = time; } }
+// let appointments = new AppointmentScheduling("Dr. Ken", "gynacologist");
+// appointments.addAvailability("2024-05-10", ["09:00", "10:00", "14:00"]);
+// const patients = new Patient("Martha Mutua", "mutuamartha.com", "34-24-89-66");
+// patients.setPreferences(appointments, "2024-05-10", "09:00");
+// appointments.scheduleAppointment(patients, "2024-05-10", "09:00");
+
+
+// const bookRecord=[
+//     {
+//         tittle:"Born a crime",
+//         author:"Trevor Noah",
+//         yearOfPublication:2000
+//     },
+//     {
+//     tittle:"manifest",
+//     author:"nancy njeru",
+//     yearOfPublication:2019
+// }    
+// ]
+
+// function checkAuthor(author){
+//     bookRecord.forEach( author =>{
+//         if(author==bookRecord.author){
+//             console.log(bookRecord.tittle,bookRecord.yearOfPublication)
+//         }
+//         else{
+//             console.log("book does not exist")
+//         }
+//     }
+
+//     )
+// }
+// checkAuthor("Nancy Njeru")
+
+
+class DisasterRecoverySystem {
+    constructor() {
+        this.situations = {};
+    }
+    addSituation(location, situation) {
+        if (!this.situations[location]) {
+            this.situations[location] = [];
+        }
+        this.situations[location].push(situation);
+    }
+    getSituation(location) {
+        return this.situations[location];
+    }
+}
+
+const disaster= new DisasterRecoverySystem();
+disaster.addSituation("nairobi", "Flood");
+disaster.addSituation("kisumu", "Earthquake");
+console.log(disaster.getSituation("nairobi")); 
+console.log(disaster.getSituation("kisumu")); 
+
+
+
+
+ 
 
